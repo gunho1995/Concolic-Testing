@@ -1,0 +1,1494 @@
+    #####:  150:    fprintf(stderr, "%s: %s\n", prog, mesg);
+    #####:  163:  error(mesg, errnum);
+    #####:  164:  exit(2);
+    #####:  165:}
+    #####:  176:    fatal("memory exhausted", 0);
+    #####:  193:    fatal("memory exhausted", 0);
+    #####:  253:	fatal("memory exhausted", 0);
+    #####:  285:    abort();
+    #####:  294:	fatal("memory exhausted", 0);
+    #####:  319:	  fprintf(stderr, "%s: warning: %s: %s\n", filename,
+    #####:  320:		  strerror(errno));
+    #####:  321:	  goto tryread;
+    #####:  403:    error("writing output", errno);
+    #####:  422:	nl = lim;
+    #####:  440:    prpending(beg);
+    #####:  450:	if (p > bp)
+    #####:  451:	  do
+    #####:  452:	    --p;
+    #####:  453:	  while (p > bp && p[-1] != '\n');
+    #####:  458:	puts("--");
+    #####:  462:	  nl = memchr(p, '\n', beg - p);
+    #####:  463:	  prline(p, nl + 1, '-');
+    #####:  464:	  p = nl + 1;
+    #####:  478:	    prline(p, nl, ':');
+    #####:  509:	break;
+    #####:  515:      else if (p < b)
+    #####:  517:	  prtext(p, b, &n);
+    #####:  518:	  nlines += n;
+    #####:  519:	}
+    #####:  607:}
+    #####:  644:    prog = strrchr(prog, '/') + 1;
+    #####:  669:	out_before = 10 * out_before + opt - '0';
+    #####:  670:	out_after = 10 * out_after + opt - '0';
+    #####:  671:	break;
+    #####:  675:	  usage();
+    #####:  680:	  usage();
+    #####:  687:	  fatal("you may specify only one of -E, -F, or -G", 0);
+    #####:  692:	  fatal("you may specify only one of -E, -F, or -G", 0);;
+    #####:  697:	  fatal("you may specify only one of -E, -F, or -G", 0);
+    #####:  704:	if (matcher)
+    #####:  705:	  fatal("matcher already specified", 0);
+    #####:  706:	matcher = optarg;
+    #####:  707:	break;
+    #####:  727:	  fatal(optarg, errno);
+    #####:  733:	  keys[keycc++] = '\n';
+    #####:  758:	out_quiet = 1;
+    #####:  759:	list_files = -1;
+    #####:  760:	break;
+    #####:  795:      usage();
+    #####:  801:    abort();
+    #####:  816:	    if (!suppress_errors)
+    #####:  817:	      error(argv[optind], errno);
+    #####:  818:	  }
+    #####:  826:		  printf("%s:", filename);
+    #####:  836:	      printf("%s\n", filename);
+    #####:  847:	printf("%d\n", count);
+    #####:  850:	  status = 0;
+    #####:  851:	  if (list_files == 1)
+    #####:  852:	    printf("(standard input)\n");
+    #####:  853:	}
+    #####:  855:	printf("(standard input)\n");
+    #####:  859:}
+    #####: 1069:  return 0;
+    #####: 1079:  for (i = 0; i < size; i++)
+    #####: 1080:    to[i] = from[i];
+    #####: 1081:}
+    #####: 1106:  int nonopts_size = (last_nonopt - first_nonopt) * sizeof (char *);
+    #####: 1107:  char **temp = (char **) __alloca (nonopts_size);
+    #####: 1111:  my_bcopy ((char *) &argv[first_nonopt], (char *) temp, nonopts_size);
+    #####: 1112:  my_bcopy ((char *) &argv[last_nonopt], (char *) &argv[first_nonopt],
+    #####: 1113:	    (optind - last_nonopt) * sizeof (char *));
+    #####: 1114:  my_bcopy ((char *) temp,
+    #####: 1115:	    (char *) &argv[first_nonopt + optind - last_nonopt],
+    #####: 1116:	    nonopts_size);
+    #####: 1120:  first_nonopt += (optind - last_nonopt);
+    #####: 1121:  last_nonopt = optind;
+    #####: 1122:}
+    #####: 1208:	  ordering = RETURN_IN_ORDER;
+    #####: 1209:	  ++optstring;
+    #####: 1210:	}
+    #####: 1213:	  ordering = REQUIRE_ORDER;
+    #####: 1214:	  ++optstring;
+    #####: 1215:	}
+    #####: 1217:	ordering = REQUIRE_ORDER;
+    #####: 1230:	    exchange ((char **) argv);
+    #####: 1255:	  optind++;
+    #####: 1257:	  if (first_nonopt != last_nonopt && last_nonopt != optind)
+    #####: 1258:	    exchange ((char **) argv);
+    #####: 1259:	  else if (first_nonopt == last_nonopt)
+    #####: 1260:	    first_nonopt = optind;
+    #####: 1261:	  last_nonopt = argc;
+    #####: 1263:	  optind = argc;
+    #####: 1264:	}
+    #####: 1288:	  if (ordering == REQUIRE_ORDER)
+    #####: 1289:	    return EOF;
+    #####: 1290:	  optarg = argv[optind++];
+    #####: 1291:	  return 1;
+    #####: 1303:	   && (argv[optind][1] == '-' || long_only))
+    #####: 1310:      char *s = nextchar;
+    #####: 1311:      int exact = 0;
+    #####: 1312:      int ambig = 0;
+    #####: 1313:      const struct option *pfound = NULL;
+    #####: 1316:      while (*s && *s != '=')
+    #####: 1317:	s++;
+    #####: 1320:      for (p = longopts, option_index = 0; p->name;
+    #####: 1321:	   p++, option_index++)
+    #####: 1322:	if (!strncmp (p->name, nextchar, s - nextchar))
+    #####: 1324:	    if (s - nextchar == strlen (p->name))
+    #####: 1327:		pfound = p;
+    #####: 1328:		indfound = option_index;
+    #####: 1329:		exact = 1;
+    #####: 1330:		break;
+    #####: 1332:	    else if (pfound == NULL)
+    #####: 1335:		pfound = p;
+    #####: 1336:		indfound = option_index;
+    #####: 1337:	      }
+    #####: 1340:	      ambig = 1;
+    #####: 1341:	  }
+    #####: 1343:      if (ambig && !exact)
+    #####: 1345:	  if (opterr)
+    #####: 1346:	    fprintf (stderr, "%s: option `%s' is ambiguous\n",
+    #####: 1347:		     argv[0], argv[optind]);
+    #####: 1348:	  nextchar += strlen (nextchar);
+    #####: 1349:	  optind++;
+    #####: 1350:	  return '?';
+    #####: 1353:      if (pfound != NULL)
+    #####: 1355:	  option_index = indfound;
+    #####: 1356:	  optind++;
+    #####: 1357:	  if (*s)
+    #####: 1361:	      if (pfound->has_arg)
+    #####: 1362:		optarg = s + 1;
+    #####: 1365:		  if (opterr)
+    #####: 1367:		      if (argv[optind - 1][1] == '-')
+    #####: 1369:			fprintf (stderr,
+    #####: 1371:				 argv[0], pfound->name);
+    #####: 1374:			fprintf (stderr,
+    #####: 1376:			     argv[0], argv[optind - 1][0], pfound->name);
+    #####: 1377:		    }
+    #####: 1378:		  nextchar += strlen (nextchar);
+    #####: 1379:		  return '?';
+    #####: 1381:	    }
+    #####: 1382:	  else if (pfound->has_arg == 1)
+    #####: 1384:	      if (optind < argc)
+    #####: 1385:		optarg = argv[optind++];
+    #####: 1388:		  if (opterr)
+    #####: 1389:		    fprintf (stderr, "%s: option `%s' requires an argument\n",
+    #####: 1390:			     argv[0], argv[optind - 1]);
+    #####: 1391:		  nextchar += strlen (nextchar);
+    #####: 1392:		  return optstring[0] == ':' ? ':' : '?';
+    #####: 1394:	    }
+    #####: 1395:	  nextchar += strlen (nextchar);
+    #####: 1396:	  if (longind != NULL)
+    #####: 1397:	    *longind = option_index;
+    #####: 1398:	  if (pfound->flag)
+    #####: 1400:	      *(pfound->flag) = pfound->val;
+    #####: 1401:	      return 0;
+    #####: 1403:	  return pfound->val;
+    #####: 1409:      if (!long_only || argv[optind][1] == '-'
+    #####: 1413:	  || my_index (optstring, *nextchar) == NULL)
+    #####: 1415:	  if (opterr)
+    #####: 1417:	      if (argv[optind][1] == '-')
+    #####: 1419:		fprintf (stderr, "%s: unrecognized option `--%s'\n",
+    #####: 1420:			 argv[0], nextchar);
+    #####: 1423:		fprintf (stderr, "%s: unrecognized option `%c%s'\n",
+    #####: 1424:			 argv[0], argv[optind][0], nextchar);
+    #####: 1425:	    }
+    #####: 1426:	  nextchar = (char *) "";
+    #####: 1427:	  optind++;
+    #####: 1428:	  return '?';
+    #####: 1430:    }
+    #####: 1444:	if (opterr)
+    #####: 1454:	    fprintf (stderr, "%s: illegal option -- %c\n", argv[0], c);
+    #####: 1456:	  }
+    #####: 1457:	optopt = c;
+    #####: 1458:	return '?';
+    #####: 1465:	    if (*nextchar != '\0')
+    #####: 1467:		optarg = nextchar;
+    #####: 1468:		optind++;
+    #####: 1469:	      }
+    #####: 1471:	      optarg = 0;
+    #####: 1472:	    nextchar = NULL;
+    #####: 1473:	  }
+    #####: 1499:		  c = ':';
+    #####: 1713:     return;
+    #####: 2783:    return REG_ESPACE;
+    #####: 2812:          RETALLOC (bufp->buffer, INIT_BUF_SIZE, unsigned char);
+    #####: 2813:        }
+    #####: 2873:                return REG_BADRPT;
+    #####: 2876:            }
+    #####: 2916:                    c = c1;
+    #####: 2917:                  }
+    #####: 2930:              break;
+    #####: 2957:                    && p < pend && TRANSLATE (*p) == TRANSLATE ('\n')
+    #####: 2958:                    && !(syntax & RE_DOT_NEWLINE))
+    #####: 2960:                    STORE_JUMP (jump, b, laststart);
+    #####: 2961:                    keep_string_p = true;
+    #####: 2962:                  }
+    #####: 3017:              p++;
+    #####: 3031:              SET_LIST_BIT ('\n');
+    #####: 3043:                    if (p == pend) return REG_EESCAPE;
+    #####: 3045:                    PATFETCH (c1);
+    #####: 3046:                    SET_LIST_BIT (c1);
+    #####: 3047:                    continue;
+    #####: 3059:                  return REG_ERANGE;
+    #####: 3067:                    && !(p - 3 >= pattern && p[-3] == '[' && p[-2] == '^')
+    #####: 3068:                    && *p != ']')
+    #####: 3070:                    reg_errcode_t ret
+    #####: 3071:                      = compile_range (&p, pend, translate, syntax, b);
+    #####: 3072:                    if (ret != REG_NOERROR) return ret;
+    #####: 3073:                  }
+    #####: 3156:                        c1++;
+    #####: 3157:                        while (c1--)    
+    #####: 3158:                          PATUNFETCH;
+    #####: 3159:                        SET_LIST_BIT ('[');
+    #####: 3160:                        SET_LIST_BIT (':');
+    #####: 3161:                        had_char_class = false;
+    #####: 3198:            goto normal_char;
+    #####: 3203:            goto handle_alt;
+    #####: 3212:             goto normal_char;
+    #####: 3235:                  RETALLOC (compile_stack.stack, compile_stack.size << 1,
+    #####: 3237:                  if (compile_stack.stack == NULL) return REG_ESPACE;
+    #####: 3239:                  compile_stack.size <<= 1;
+    #####: 3240:                }
+    #####: 3277:              if (COMPILE_STACK_EMPTY)
+    #####: 3278:                if (syntax & RE_UNMATCHED_RIGHT_PAREN_ORD)
+    #####: 3279:                  goto normal_backslash;
+    #####: 3281:                  return REG_ERPAREN;
+    #####: 3289:                  BUF_PUSH (push_dummy_failure);
+    #####: 3293:                  STORE_JUMP (jump_past_alt, fixup_alt_jump, b - 1);
+    #####: 3294:                }
+    #####: 3298:                if (syntax & RE_UNMATCHED_RIGHT_PAREN_ORD)
+    #####: 3299:                  goto normal_char;
+    #####: 3301:                  return REG_ERPAREN;
+    #####: 3341:              if (syntax & RE_LIMITED_OPS || syntax & RE_NO_BK_VBAR)
+    #####: 3342:                goto normal_backslash;
+    #####: 3345:                goto normal_char;
+    #####: 3371:                STORE_JUMP (jump_past_alt, fixup_alt_jump, b);
+    #####: 3387:              if (!(syntax & RE_INTERVALS)
+    #####: 3390:                  || ((syntax & RE_INTERVALS) && (syntax & RE_NO_BK_BRACES))
+    #####: 3391:                  || (p - 2 == pattern  &&  p == pend))
+    #####: 3392:                goto normal_backslash;
+    #####: 3405:                    if (syntax & RE_NO_BK_BRACES)
+    #####: 3406:                      goto unfetch_interval;
+    #####: 3408:                      return REG_EBRACE;
+    #####: 3415:                    GET_UNSIGNED_NUMBER (upper_bound);
+    #####: 3416:                    if (upper_bound < 0) upper_bound = RE_DUP_MAX;
+    #####: 3417:                  }
+    #####: 3425:                    if (syntax & RE_NO_BK_BRACES)
+    #####: 3426:                      goto unfetch_interval;
+    #####: 3428:                      return REG_BADBR;
+    #####: 3433:                    if (c != '\\') return REG_EBRACE;
+    #####: 3435:                    PATFETCH (c);
+    #####: 3436:                  }
+    #####: 3440:                    if (syntax & RE_NO_BK_BRACES)
+    #####: 3441:                      goto unfetch_interval;
+    #####: 3443:                      return REG_BADBR;
+    #####: 3451:                    if (syntax & RE_CONTEXT_INVALID_OPS)
+    #####: 3452:                      return REG_BADRPT;
+    #####: 3453:                    else if (syntax & RE_CONTEXT_INDEP_OPS)
+    #####: 3454:                      laststart = b;
+    #####: 3456:                      goto unfetch_interval;
+    #####: 3457:                  }
+    #####: 3464:                     GET_BUFFER_SPACE (3);
+    #####: 3465:                     INSERT_JUMP (jump, laststart, b + 3);
+    #####: 3466:                     b += 3;
+    #####: 3467:                   }
+    #####: 3541:               p = beg_interval;
+    #####: 3542:               beg_interval = NULL;
+    #####: 3545:               PATFETCH (c);	
+    #####: 3547:               if (!(syntax & RE_NO_BK_BRACES))
+    #####: 3549:                   if (p > pattern  &&  p[-1] == '\\')
+    #####: 3550:                     goto normal_backslash;
+    #####: 3551:                 }
+    #####: 3552:               goto normal_char;
+    #####: 3576:              laststart = b;
+    #####: 3577:              BUF_PUSH (wordchar);
+    #####: 3578:              break;
+    #####: 3582:              laststart = b;
+    #####: 3583:              BUF_PUSH (notwordchar);
+    #####: 3584:              break;
+    #####: 3588:              BUF_PUSH (wordbeg);
+    #####: 3589:              break;
+    #####: 3592:              BUF_PUSH (wordend);
+    #####: 3593:              break;
+    #####: 3596:              BUF_PUSH (wordbound);
+    #####: 3597:              break;
+    #####: 3600:              BUF_PUSH (notwordbound);
+    #####: 3601:              break;
+    #####: 3604:              BUF_PUSH (begbuf);
+    #####: 3605:              break;
+    #####: 3608:              BUF_PUSH (endbuf);
+    #####: 3609:              break;
+    #####: 3613:              if (syntax & RE_NO_BK_REFS)
+    #####: 3614:                goto normal_char;
+    #####: 3616:              c1 = c - '0';
+    #####: 3618:              if (c1 > regnum)
+    #####: 3619:                return REG_ESUBREG;
+    #####: 3622:              if (group_in_compile_stack (compile_stack, c1))
+    #####: 3623:                goto normal_char;
+    #####: 3625:              laststart = b;
+    #####: 3626:              BUF_PUSH_2 (duplicate, c1);
+    #####: 3627:              break;
+    #####: 3633:                goto handle_plus;
+    #####: 3635:                goto normal_backslash;
+    #####: 3691:    return REG_EPAREN;
+    #####: 3829:  for (this_element = compile_stack.avail - 1;  
+    #####: 3830:       this_element >= 0; 
+    #####: 3831:       this_element--)
+    #####: 3832:    if (compile_stack.stack[this_element].regnum == regnum)
+    #####: 3833:      return true;
+    #####: 3835:  return false;
+    #####: 3836:}
+    #####: 3863:    return REG_ERANGE;
+    #####: 3881:    return syntax & RE_NO_EMPTY_RANGES ? REG_ERANGE : REG_NOERROR;
+    #####: 4192:  unsigned num_regs = 0;
+    #####: 4194:  register char *fastmap = bufp->fastmap;
+    #####: 4195:  unsigned char *pattern = bufp->buffer;
+    #####: 4196:  unsigned long size = bufp->used;
+    #####: 4197:  const unsigned char *p = pattern;
+    #####: 4198:  register unsigned char *pend = pattern + size;
+    #####: 4204:  boolean path_can_be_null = true;
+    #####: 4207:  boolean succeed_n_p = false;
+    #####: 4211:  INIT_FAIL_STACK ();
+    #####: 4212:  bzero (fastmap, 1 << BYTEWIDTH);  /* Assume nothing's valid.  */
+    #####: 4213:  bufp->fastmap_accurate = 1;	    /* It will be when we're done.  */
+    #####: 4214:  bufp->can_be_null = 0;
+    #####: 4216:  while (p != pend || !FAIL_STACK_EMPTY ())
+    #####: 4218:      if (p == pend)
+    #####: 4220:          bufp->can_be_null |= path_can_be_null;
+    #####: 4223:          path_can_be_null = true;
+    #####: 4225:          p = fail_stack.stack[--fail_stack.avail];
+    #####: 4226:	}
+    #####: 4234:      switch ((re_opcode_t) *p++)
+    #####: 4244:	  bufp->can_be_null = 1;
+    #####: 4245:          return 0;
+    #####: 4252:          fastmap[p[1]] = 1;
+    #####: 4253:	  break;
+    #####: 4257:          for (j = *p++ * BYTEWIDTH - 1; j >= 0; j--)
+    #####: 4258:	    if (p[j / BYTEWIDTH] & (1 << (j % BYTEWIDTH)))
+    #####: 4259:              fastmap[j] = 1;
+    #####: 4260:	  break;
+    #####: 4265:	  for (j = *p * BYTEWIDTH; j < (1 << BYTEWIDTH); j++)
+    #####: 4266:            fastmap[j] = 1;
+    #####: 4268:	  for (j = *p++ * BYTEWIDTH - 1; j >= 0; j--)
+    #####: 4269:	    if (!(p[j / BYTEWIDTH] & (1 << (j % BYTEWIDTH))))
+    #####: 4270:              fastmap[j] = 1;
+    #####: 4271:          break;
+    #####: 4275:	  for (j = 0; j < (1 << BYTEWIDTH); j++)
+    #####: 4276:	    if (SYNTAX (j) == Sword)
+    #####: 4277:	      fastmap[j] = 1;
+    #####: 4278:	  break;
+    #####: 4282:	  for (j = 0; j < (1 << BYTEWIDTH); j++)
+    #####: 4283:	    if (SYNTAX (j) != Sword)
+    #####: 4284:	      fastmap[j] = 1;
+    #####: 4285:	  break;
+    #####: 4290:	  for (j = 0; j < (1 << BYTEWIDTH); j++)
+    #####: 4291:            fastmap[j] = 1;
+    #####: 4294:          if (!(bufp->syntax & RE_DOT_NEWLINE))
+    #####: 4295:            fastmap['\n'] = 0;
+    #####: 4299:	  else if (bufp->can_be_null)
+    #####: 4300:	    return 0;
+    #####: 4303:	  break;
+    #####: 4344:          continue;
+    #####: 4353:          EXTRACT_NUMBER_AND_INCR (j, p);
+    #####: 4354:	  p += j;	
+    #####: 4355:	  if (j > 0)
+    #####: 4356:	    continue;
+    #####: 4363:          if ((re_opcode_t) *p != on_failure_jump
+    #####: 4364:	      && (re_opcode_t) *p != succeed_n)
+    #####: 4365:	    continue;
+    #####: 4367:          p++;
+    #####: 4368:          EXTRACT_NUMBER_AND_INCR (j, p);
+    #####: 4369:          p += j;		
+    #####: 4372:          if (!FAIL_STACK_EMPTY () 
+    #####: 4373:	      && fail_stack.stack[fail_stack.avail - 1] == p)
+    #####: 4374:            fail_stack.avail--;
+    #####: 4376:          continue;
+    #####: 4382:          EXTRACT_NUMBER_AND_INCR (j, p);
+    #####: 4391:          if (p + j < pend)
+    #####: 4393:              if (!PUSH_PATTERN_OP (p + j, fail_stack))
+    #####: 4394:                return -2;
+    #####: 4395:            }
+    #####: 4397:            bufp->can_be_null = 1;
+    #####: 4399:          if (succeed_n_p)
+    #####: 4401:              EXTRACT_NUMBER_AND_INCR (k, p);	/* Skip the n.  */
+    #####: 4402:              succeed_n_p = false;
+    #####: 4403:	    }
+    #####: 4405:          continue;
+    #####: 4410:          p += 2;		
+    #####: 4413:          EXTRACT_NUMBER_AND_INCR (k, p);
+    #####: 4414:          if (k == 0)
+    #####: 4416:              p -= 4;
+    #####: 4417:  	      succeed_n_p = true;  /* Spaghetti code alert.  */
+    #####: 4418:              goto handle_on_failure_jump;
+    #####: 4420:          continue;
+    #####: 4424:          p += 4;
+    #####: 4425:          continue;
+    #####: 4430:	  p += 2;
+    #####: 4431:	  continue;
+    #####: 4435:          abort (); /* We have listed all the cases.  */
+    #####: 4444:      path_can_be_null = false;
+    #####: 4445:      p = pend;
+    #####: 4450:  bufp->can_be_null |= path_can_be_null;
+    #####: 4451:  return 0;
+    #####: 4452:} /* re_compile_fastmap */
+    #####: 4474:  if (num_regs)
+    #####: 4476:      bufp->regs_allocated = REGS_REALLOCATE;
+    #####: 4477:      regs->num_regs = num_regs;
+    #####: 4478:      regs->start = starts;
+    #####: 4479:      regs->end = ends;
+    #####: 4480:    }
+    #####: 4483:      bufp->regs_allocated = REGS_UNALLOCATED;
+    #####: 4484:      regs->num_regs = 0;
+    #####: 4485:      regs->start = regs->end = (regoff_t) 0;
+    #####: 4487:}
+    #####: 4501:  return re_search_2 (bufp, NULL, 0, string, size, startpos, range, 
+    #####: 4502:		      regs, size);
+    #####: 4538:  register char *fastmap = bufp->fastmap;
+    #####: 4539:  register char *translate = bufp->translate;
+    #####: 4540:  int total_size = size1 + size2;
+    #####: 4541:  int endpos = startpos + range;
+    #####: 4544:  if (startpos < 0 || startpos > total_size)
+    #####: 4545:    return -1;
+    #####: 4549:  if (endpos < -1)
+    #####: 4550:    range = -1 - startpos;
+    #####: 4551:  else if (endpos > total_size)
+    #####: 4552:    range = total_size - startpos;
+    #####: 4556:  if (bufp->used > 0 && (re_opcode_t) bufp->buffer[0] == begbuf && range > 0)
+    #####: 4558:      if (startpos > 0)
+    #####: 4559:	return -1;
+    #####: 4561:	range = 1;
+    #####: 4562:    }
+    #####: 4565:  if (fastmap && !bufp->fastmap_accurate)
+    #####: 4566:    if (re_compile_fastmap (bufp) == -2)
+    #####: 4567:      return -2;
+    #####: 4570:  for (;;)
+    #####: 4576:      if (fastmap && startpos < total_size && !bufp->can_be_null)
+    #####: 4578:	  if (range > 0)	/* Searching forwards.  */
+    #####: 4581:	      register int lim = 0;
+    #####: 4582:	      int irange = range;
+    #####: 4584:              if (startpos < size1 && startpos + range >= size1)
+    #####: 4585:                lim = range - (size1 - startpos);
+    #####: 4587:	      d = (startpos >= size1 ? string2 - size1 : string1) + startpos;
+    #####: 4591:	      if (translate)
+    #####: 4592:                while (range > lim
+    #####: 4593:                       && !fastmap[(unsigned char)
+    #####: 4594:				   translate[(unsigned char) *d++]])
+    #####: 4595:                  range--;
+    #####: 4597:                while (range > lim && !fastmap[(unsigned char) *d++])
+    #####: 4598:                  range--;
+    #####: 4600:	      startpos += irange - range;
+    #####: 4601:	    }
+    #####: 4604:	      register char c = (size1 == 0 || startpos >= size1
+    #####: 4605:                                 ? string2[startpos - size1] 
+    #####: 4606:                                 : string1[startpos]);
+    #####: 4608:	      if (!fastmap[(unsigned char) TRANSLATE (c)])
+    #####: 4609:		goto advance;
+    #####: 4611:	}
+    #####: 4614:      if (range >= 0 && startpos == total_size && fastmap
+    #####: 4615:          && !bufp->can_be_null)
+    #####: 4616:	return -1;
+    #####: 4618:      val = re_match_2 (bufp, string1, size1, string2, size2,
+    #####: 4619:	                startpos, regs, stop);
+    #####: 4620:      if (val >= 0)
+    #####: 4621:	return startpos;
+    #####: 4623:      if (val == -2)
+    #####: 4624:	return -2;
+    #####: 4627:      if (!range) 
+    #####: 4628:        break;
+    #####: 4629:      else if (range > 0) 
+    #####: 4631:          range--; 
+    #####: 4632:          startpos++;
+    #####: 4633:        }
+    #####: 4636:          range++; 
+    #####: 4637:          startpos--;
+    #####: 4640:  return -1;
+    #####: 4641:} /* re_search_2 */
+    #####: 4793:  return re_match_2 (bufp, NULL, 0, string, size, pos, regs, size); 
+    #####: 4835:  unsigned char *p = bufp->buffer;
+    #####: 4836:  register unsigned char *pend = p + bufp->used;
+    #####: 4839:  char *translate = bufp->translate;
+    #####: 4859:  unsigned num_regs = bufp->re_nsub + 1;
+    #####: 4862:  unsigned lowest_active_reg = NO_LOWEST_ACTIVE_REG;
+    #####: 4863:  unsigned highest_active_reg = NO_HIGHEST_ACTIVE_REG;
+    #####: 4893:  unsigned best_regs_set = false;
+    #####: 4904:  const char *match_end = NULL;
+    #####: 4917:  INIT_FAIL_STACK ();
+    #####: 4924:  if (bufp->re_nsub)
+    #####: 4926:      regstart = REGEX_TALLOC (num_regs, const char *);
+    #####: 4927:      regend = REGEX_TALLOC (num_regs, const char *);
+    #####: 4928:      old_regstart = REGEX_TALLOC (num_regs, const char *);
+    #####: 4929:      old_regend = REGEX_TALLOC (num_regs, const char *);
+    #####: 4930:      best_regstart = REGEX_TALLOC (num_regs, const char *);
+    #####: 4931:      best_regend = REGEX_TALLOC (num_regs, const char *);
+    #####: 4932:      reg_info = REGEX_TALLOC (num_regs, register_info_type);
+    #####: 4933:      reg_dummy = REGEX_TALLOC (num_regs, const char *);
+    #####: 4934:      reg_info_dummy = REGEX_TALLOC (num_regs, register_info_type);
+    #####: 4936:      if (!(regstart && regend && old_regstart && old_regend && reg_info 
+    #####: 4937:            && best_regstart && best_regend && reg_dummy && reg_info_dummy)) 
+    #####: 4939:          FREE_VARIABLES ();
+    #####: 4940:          return -2;
+    #####: 4942:    }
+    #####: 4955:  if (pos < 0 || pos > size1 + size2)
+    #####: 4957:      FREE_VARIABLES ();
+    #####: 4958:      return -1;
+    #####: 4964:  for (mcnt = 1; mcnt < num_regs; mcnt++)
+    #####: 4966:      regstart[mcnt] = regend[mcnt] 
+    #####: 4967:        = old_regstart[mcnt] = old_regend[mcnt] = REG_UNSET_VALUE;
+    #####: 4969:      REG_MATCH_NULL_STRING_P (reg_info[mcnt]) = MATCH_NULL_UNSET_VALUE;
+    #####: 4970:      IS_ACTIVE (reg_info[mcnt]) = 0;
+    #####: 4971:      MATCHED_SOMETHING (reg_info[mcnt]) = 0;
+    #####: 4972:      EVER_MATCHED_SOMETHING (reg_info[mcnt]) = 0;
+    #####: 4973:    }
+    #####: 4977:  if (size2 == 0 && string1 != NULL)
+    #####: 4979:      string2 = string1;
+    #####: 4980:      size2 = size1;
+    #####: 4981:      string1 = 0;
+    #####: 4982:      size1 = 0;
+    #####: 4983:    }
+    #####: 4984:  end1 = string1 + size1;
+    #####: 4985:  end2 = string2 + size2;
+    #####: 4988:  if (stop <= size1)
+    #####: 4990:      end_match_1 = string1 + stop;
+    #####: 4991:      end_match_2 = string2;
+    #####: 4992:    }
+    #####: 4995:      end_match_1 = end1;
+    #####: 4996:      end_match_2 = string2 + stop - size1;
+    #####: 5005:  if (size1 > 0 && pos <= size1)
+    #####: 5007:      d = string1 + pos;
+    #####: 5008:      dend = end_match_1;
+    #####: 5009:    }
+    #####: 5012:      d = string2 + pos - size1;
+    #####: 5013:      dend = end_match_2;
+    #####: 5025:  for (;;)
+    #####: 5029:      if (p == pend)
+    #####: 5035:          if (d != end_match_2)
+    #####: 5039:              if (!FAIL_STACK_EMPTY ())
+    #####: 5041:                  boolean same_str_p = (FIRST_STRING_P (match_end) 
+    #####: 5042:	        	                == MATCHING_IN_FIRST_STRING);
+    #####: 5045:                  if (!best_regs_set
+    #####: 5046:                      || (same_str_p && d > match_end)
+    #####: 5047:                      || (!same_str_p && !MATCHING_IN_FIRST_STRING))
+    #####: 5049:                      best_regs_set = true;
+    #####: 5050:                      match_end = d;
+    #####: 5054:                      for (mcnt = 1; mcnt < num_regs; mcnt++)
+    #####: 5056:                          best_regstart[mcnt] = regstart[mcnt];
+    #####: 5057:                          best_regend[mcnt] = regend[mcnt];
+    #####: 5058:                        }
+    #####: 5059:                    }
+    #####: 5060:                  goto fail;	       
+    #####: 5064:              else if (best_regs_set)   
+    #####: 5065:                {
+    #####: 5074:                  d = match_end;
+    #####: 5075:                  dend = ((d >= string1 && d <= end1)
+    #####: 5076:		           ? end_match_1 : end_match_2);
+    #####: 5078:		  for (mcnt = 1; mcnt < num_regs; mcnt++)
+    #####: 5080:		      regstart[mcnt] = best_regstart[mcnt];
+    #####: 5081:		      regend[mcnt] = best_regend[mcnt];
+    #####: 5082:		    }
+    #####: 5083:                }
+    #####: 5084:            } /* d != end_match_2 */
+    #####: 5089:          if (regs && !bufp->no_sub)
+    #####: 5092:              if (bufp->regs_allocated == REGS_UNALLOCATED)
+    #####: 5096:                  regs->num_regs = MAX (RE_NREGS, num_regs + 1);
+    #####: 5097:                  regs->start = TALLOC (regs->num_regs, regoff_t);
+    #####: 5098:                  regs->end = TALLOC (regs->num_regs, regoff_t);
+    #####: 5099:                  if (regs->start == NULL || regs->end == NULL)
+    #####: 5100:                    return -2;
+    #####: 5101:                  bufp->regs_allocated = REGS_REALLOCATE;
+    #####: 5102:                }
+    #####: 5103:              else if (bufp->regs_allocated == REGS_REALLOCATE)
+    #####: 5107:                  if (regs->num_regs < num_regs + 1)
+    #####: 5109:                      regs->num_regs = num_regs + 1;
+    #####: 5110:                      RETALLOC (regs->start, regs->num_regs, regoff_t);
+    #####: 5111:                      RETALLOC (regs->end, regs->num_regs, regoff_t);
+    #####: 5112:                      if (regs->start == NULL || regs->end == NULL)
+    #####: 5113:                        return -2;
+    #####: 5114:                    }
+    #####: 5115:                }
+    #####: 5126:              if (regs->num_regs > 0)
+    #####: 5128:                  regs->start[0] = pos;
+    #####: 5129:                  regs->end[0] = (MATCHING_IN_FIRST_STRING ? d - string1
+    #####: 5130:			          : d - string2 + size1);
+    #####: 5131:                }
+    #####: 5135:	      for (mcnt = 1; mcnt < MIN (num_regs, regs->num_regs); mcnt++)
+    #####: 5137:                  if (REG_UNSET (regstart[mcnt]) || REG_UNSET (regend[mcnt]))
+    #####: 5138:                    regs->start[mcnt] = regs->end[mcnt] = -1;
+    #####: 5141:		      regs->start[mcnt] = POINTER_TO_OFFSET (regstart[mcnt]);
+    #####: 5142:                      regs->end[mcnt] = POINTER_TO_OFFSET (regend[mcnt]);
+    #####: 5144:		}
+    #####: 5151:              for (mcnt = num_regs; mcnt < regs->num_regs; mcnt++)
+    #####: 5152:                regs->start[mcnt] = regs->end[mcnt] = -1;
+    #####: 5153:	    } /* regs && !bufp->no_sub */
+    #####: 5155:          FREE_VARIABLES ();
+    #####: 5161:          mcnt = d - pos - (MATCHING_IN_FIRST_STRING 
+    #####: 5162:			    ? string1 
+    #####: 5163:			    : string2 - size1);
+    #####: 5167:          return mcnt;
+    #####: 5174:      switch ((re_opcode_t) *p++)
+    #####: 5181:          break;
+    #####: 5188:	  mcnt = *p++;
+    #####: 5193:          if (translate)
+    #####: 5195:	      do
+    #####: 5197:		  PREFETCH ();
+    #####: 5198:		  if (translate[(unsigned char) *d++] != (char) *p++)
+    #####: 5199:                    goto fail;
+    #####: 5200:		}
+    #####: 5201:	      while (--mcnt);
+    #####: 5202:	    }
+    #####: 5205:	      do
+    #####: 5207:		  PREFETCH ();
+    #####: 5208:		  if (*d++ != (char) *p++) goto fail;
+    #####: 5209:		}
+    #####: 5210:	      while (--mcnt);
+    #####: 5212:	  SET_REGS_MATCHED ();
+    #####: 5213:          break;
+    #####: 5220:          PREFETCH ();
+    #####: 5222:          if ((!(bufp->syntax & RE_DOT_NEWLINE) && TRANSLATE (*d) == '\n')
+    #####: 5223:              || (bufp->syntax & RE_DOT_NOT_NULL && TRANSLATE (*d) == '\000'))
+    #####: 5224:	    goto fail;
+    #####: 5226:          SET_REGS_MATCHED ();
+    #####: 5228:          d++;
+    #####: 5229:	  break;
+    #####: 5236:	    boolean not = (re_opcode_t) *(p - 1) == charset_not;
+    #####: 5240:	    PREFETCH ();
+    #####: 5241:	    c = TRANSLATE (*d); /* The character to match.  */
+    #####: 5245:	    if (c < (unsigned) (*p * BYTEWIDTH)
+    #####: 5246:		&& p[1 + c / BYTEWIDTH] & (1 << (c % BYTEWIDTH)))
+    #####: 5247:	      not = !not;
+    #####: 5249:	    p += 1 + *p;
+    #####: 5251:	    if (!not) goto fail;
+    #####: 5253:	    SET_REGS_MATCHED ();
+    #####: 5254:            d++;
+    #####: 5255:	    break;
+    #####: 5268:	  p1 = p;		/* To send to group_match_null_string_p.  */
+    #####: 5270:          if (REG_MATCH_NULL_STRING_P (reg_info[*p]) == MATCH_NULL_UNSET_VALUE)
+    #####: 5271:            REG_MATCH_NULL_STRING_P (reg_info[*p]) 
+    #####: 5272:              = group_match_null_string_p (&p1, pend, reg_info);
+    #####: 5279:          old_regstart[*p] = REG_MATCH_NULL_STRING_P (reg_info[*p])
+    #####: 5280:                             ? REG_UNSET (regstart[*p]) ? d : regstart[*p]
+    #####: 5281:                             : regstart[*p];
+    #####: 5285:          regstart[*p] = d;
+    #####: 5288:          IS_ACTIVE (reg_info[*p]) = 1;
+    #####: 5289:          MATCHED_SOMETHING (reg_info[*p]) = 0;
+    #####: 5292:          highest_active_reg = *p;
+    #####: 5296:          if (lowest_active_reg == NO_LOWEST_ACTIVE_REG)
+    #####: 5297:            lowest_active_reg = *p;
+    #####: 5300:          p += 2;
+    #####: 5301:          break;
+    #####: 5315:          old_regend[*p] = REG_MATCH_NULL_STRING_P (reg_info[*p])
+    #####: 5316:                           ? REG_UNSET (regend[*p]) ? d : regend[*p]
+    #####: 5317:			   : regend[*p];
+    #####: 5321:          regend[*p] = d;
+    #####: 5325:          IS_ACTIVE (reg_info[*p]) = 0;
+    #####: 5329:          if (lowest_active_reg == highest_active_reg)
+    #####: 5331:              lowest_active_reg = NO_LOWEST_ACTIVE_REG;
+    #####: 5332:              highest_active_reg = NO_HIGHEST_ACTIVE_REG;
+    #####: 5333:            }
+    #####: 5339:              unsigned char r = *p - 1;
+    #####: 5340:              while (r > 0 && !IS_ACTIVE (reg_info[r]))
+    #####: 5341:                r--;
+    #####: 5350:	      if (r == 0)
+    #####: 5352:                  lowest_active_reg = NO_LOWEST_ACTIVE_REG;
+    #####: 5353:                  highest_active_reg = NO_HIGHEST_ACTIVE_REG;
+    #####: 5354:                }
+    #####: 5356:                highest_active_reg = r;
+    #####: 5364:          if ((!MATCHED_SOMETHING (reg_info[*p])
+    #####: 5365:               || (re_opcode_t) p[-3] == start_memory)
+    #####: 5366:	      && (p + 2) < pend)              
+    #####: 5368:              boolean is_a_jump_n = false;
+    #####: 5370:              p1 = p + 2;
+    #####: 5371:              mcnt = 0;
+    #####: 5372:              switch ((re_opcode_t) *p1++)
+    #####: 5375:		    is_a_jump_n = true;
+    #####: 5380:                    EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 5381:		    if (is_a_jump_n)
+    #####: 5382:		      p1 += 2;
+    #####: 5383:                    break;
+    #####: 5387:                }
+    #####: 5388:	      p1 += mcnt;
+    #####: 5395:              if (mcnt < 0 && (re_opcode_t) *p1 == on_failure_jump
+    #####: 5396:                  && (re_opcode_t) p1[3] == start_memory && p1[4] == *p)
+    #####: 5408:                  if (EVER_MATCHED_SOMETHING (reg_info[*p]))
+    #####: 5412:                      EVER_MATCHED_SOMETHING (reg_info[*p]) = 0;
+    #####: 5415:                      for (r = *p; r < *p + *(p + 1); r++)
+    #####: 5417:                          regstart[r] = old_regstart[r];
+    #####: 5420:                          if ((int) old_regend[r] >= (int) regstart[r])
+    #####: 5421:                            regend[r] = old_regend[r];
+    #####: 5422:                        }     
+    #####: 5423:                    }
+    #####: 5424:		  p1++;
+    #####: 5425:                  EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 5426:                  PUSH_FAILURE_POINT (p1 + mcnt, d, -2);
+    #####: 5428:                  goto fail;
+    #####: 5430:            }
+    #####: 5433:          p += 2;
+    #####: 5434:          break;
+    #####: 5442:	    int regno = *p++;   /* Get which register to match against.  */
+    #####: 5446:            if (REG_UNSET (regstart[regno]) || REG_UNSET (regend[regno]))
+    #####: 5447:              goto fail;
+    #####: 5450:            d2 = regstart[regno];
+    #####: 5457:            dend2 = ((FIRST_STRING_P (regstart[regno]) 
+    #####: 5458:		      == FIRST_STRING_P (regend[regno]))
+    #####: 5459:		     ? regend[regno] : end_match_1);
+    #####: 5460:	    for (;;)
+    #####: 5464:		while (d2 == dend2)
+    #####: 5466:		    if (dend2 == end_match_2) break;
+    #####: 5467:		    if (dend2 == regend[regno]) break;
+    #####: 5470:                    d2 = string2;
+    #####: 5471:                    dend2 = regend[regno];
+    #####: 5474:		if (d2 == dend2) break;
+    #####: 5477:		PREFETCH ();
+    #####: 5480:		mcnt = dend - d;
+    #####: 5484:                if (mcnt > dend2 - d2)
+    #####: 5485:		  mcnt = dend2 - d2;
+    #####: 5489:		if (translate 
+    #####: 5490:                    ? bcmp_translate (d, d2, mcnt, translate) 
+    #####: 5491:                    : bcmp (d, d2, mcnt))
+    #####: 5492:		  goto fail;
+    #####: 5493:		d += mcnt, d2 += mcnt;
+    #####: 5496:	  break;
+    #####: 5505:          if (AT_STRINGS_BEG (d))
+    #####: 5507:              if (!bufp->not_bol) break;
+    #####: 5508:            }
+    #####: 5509:          else if (d[-1] == '\n' && bufp->newline_anchor)
+    #####: 5511:              break;
+    #####: 5514:          goto fail;
+    #####: 5521:          if (AT_STRINGS_END (d))
+    #####: 5523:              if (!bufp->not_eol) break;
+    #####: 5524:            }
+    #####: 5527:          else if ((d == end1 ? *string2 : *d) == '\n'
+    #####: 5528:                   && bufp->newline_anchor)
+    #####: 5530:              break;
+    #####: 5532:          goto fail;
+    #####: 5538:          if (AT_STRINGS_BEG (d))
+    #####: 5539:            break;
+    #####: 5540:          goto fail;
+    #####: 5546:	  if (AT_STRINGS_END (d))
+    #####: 5547:	    break;
+    #####: 5548:          goto fail;
+    #####: 5570:          EXTRACT_NUMBER_AND_INCR (mcnt, p);
+    #####: 5573:          PUSH_FAILURE_POINT (p + mcnt, NULL, -2);
+    #####: 5574:          break;
+    #####: 5593:          EXTRACT_NUMBER_AND_INCR (mcnt, p);
+    #####: 5605:          p1 = p;
+    #####: 5611:          while (p1 < pend && (re_opcode_t) *p1 == no_op)
+    #####: 5612:            p1++;
+    #####: 5614:          if (p1 < pend && (re_opcode_t) *p1 == start_memory)
+    #####: 5620:              highest_active_reg = *(p1 + 1) + *(p1 + 2);
+    #####: 5621:              if (lowest_active_reg == NO_LOWEST_ACTIVE_REG)
+    #####: 5622:                lowest_active_reg = *(p1 + 1);
+    #####: 5623:            }
+    #####: 5626:          PUSH_FAILURE_POINT (p + mcnt, d, -2);
+    #####: 5627:          break;
+    #####: 5633:          EXTRACT_NUMBER_AND_INCR (mcnt, p);
+    #####: 5636:	    register unsigned char *p2 = p;
+    #####: 5652:	    while (p2 + 2 < pend
+    #####: 5653:		   && ((re_opcode_t) *p2 == stop_memory
+    #####: 5654:		       || (re_opcode_t) *p2 == start_memory))
+    #####: 5655:	      p2 += 3;			/* Skip over args, too.  */
+    #####: 5658:            if (p2 == pend)
+    #####: 5663:  	        p[-3] = (unsigned char) pop_failure_jump;
+    #####: 5666:              }
+    #####: 5668:            else if ((re_opcode_t) *p2 == exactn
+    #####: 5669:		     || (bufp->newline_anchor && (re_opcode_t) *p2 == endline))
+    #####: 5671:		register unsigned char c
+    #####: 5672:                  = *p2 == (unsigned char) endline ? '\n' : p2[2];
+    #####: 5673:		p1 = p + mcnt;
+    #####: 5678:                if ((re_opcode_t) p1[3] == exactn && p1[5] != c)
+    #####: 5680:  		    p[-3] = (unsigned char) pop_failure_jump;
+    #####: 5683:                  }
+    #####: 5685:		else if ((re_opcode_t) p1[3] == charset
+    #####: 5686:			 || (re_opcode_t) p1[3] == charset_not)
+    #####: 5688:		    int not = (re_opcode_t) p1[3] == charset_not;
+    #####: 5690:		    if (c < (unsigned char) (p1[4] * BYTEWIDTH)
+    #####: 5691:			&& p1[5 + c / BYTEWIDTH] & (1 << (c % BYTEWIDTH)))
+    #####: 5692:		      not = !not;
+    #####: 5696:		    if (!not)
+    #####: 5698:  		        p[-3] = (unsigned char) pop_failure_jump;
+    #####: 5700:                      }
+    #####: 5701:		  }
+    #####: 5702:	      }
+    #####: 5704:	  p -= 2;		/* Point at relative address again.  */
+    #####: 5705:	  if ((re_opcode_t) p[-1] != pop_failure_jump)
+    #####: 5707:	      p[-1] = (unsigned char) jump;
+    #####: 5709:	      goto unconditional_jump;
+    #####: 5732:            POP_FAILURE_POINT (sdummy, pdummy,
+    #####: 5735:          }
+    #####: 5742:	  EXTRACT_NUMBER_AND_INCR (mcnt, p);	/* Get the amount to jump.  */
+    #####: 5744:	  p += mcnt;				/* Do the jump.  */
+    #####: 5746:	  break;
+    #####: 5753:          goto unconditional_jump;
+    #####: 5765:          PUSH_FAILURE_POINT (0, 0, -2);
+    #####: 5766:          goto unconditional_jump;
+    #####: 5778:          PUSH_FAILURE_POINT (0, 0, -2);
+    #####: 5779:          break;
+    #####: 5784:          EXTRACT_NUMBER (mcnt, p + 2);
+    #####: 5789:          if (mcnt > 0)
+    #####: 5791:               mcnt--;
+    #####: 5792:	       p += 2;
+    #####: 5793:               STORE_NUMBER_AND_INCR (p, mcnt);
+    #####: 5795:            }
+    #####: 5796:	  else if (mcnt == 0)
+    #####: 5799:	      p[2] = (unsigned char) no_op;
+    #####: 5800:              p[3] = (unsigned char) no_op;
+    #####: 5801:              goto on_failure;
+    #####: 5803:          break;
+    #####: 5806:          EXTRACT_NUMBER (mcnt, p + 2);
+    #####: 5810:          if (mcnt)
+    #####: 5812:               mcnt--;
+    #####: 5813:               STORE_NUMBER (p + 2, mcnt);
+    #####: 5814:	       goto unconditional_jump;	     
+    #####: 5818:	    p += 4;		     
+    #####: 5819:          break;
+    #####: 5825:            EXTRACT_NUMBER_AND_INCR (mcnt, p);
+    #####: 5826:            p1 = p + mcnt;
+    #####: 5827:            EXTRACT_NUMBER_AND_INCR (mcnt, p);
+    #####: 5829:	    STORE_NUMBER (p1, mcnt);
+    #####: 5830:            break;
+    #####: 5835:          if (AT_WORD_BOUNDARY (d))
+    #####: 5836:	    break;
+    #####: 5837:          goto fail;
+    #####: 5841:	  if (AT_WORD_BOUNDARY (d))
+    #####: 5842:	    goto fail;
+    #####: 5843:          break;
+    #####: 5847:	  if (WORDCHAR_P (d) && (AT_STRINGS_BEG (d) || !WORDCHAR_P (d - 1)))
+    #####: 5848:	    break;
+    #####: 5849:          goto fail;
+    #####: 5853:	  if (!AT_STRINGS_BEG (d) && WORDCHAR_P (d - 1)
+    #####: 5854:              && (!WORDCHAR_P (d) || AT_STRINGS_END (d)))
+    #####: 5855:	    break;
+    #####: 5856:          goto fail;
+    #####: 5918:	  PREFETCH ();
+    #####: 5919:          if (!WORDCHAR_P (d))
+    #####: 5920:            goto fail;
+    #####: 5921:	  SET_REGS_MATCHED ();
+    #####: 5922:          d++;
+    #####: 5923:	  break;
+    #####: 5927:	  PREFETCH ();
+    #####: 5928:	  if (WORDCHAR_P (d))
+    #####: 5929:            goto fail;
+    #####: 5930:          SET_REGS_MATCHED ();
+    #####: 5931:          d++;
+    #####: 5932:	  break;
+    #####: 5936:          abort ();
+    #####: 5938:      continue;  /* Successfully executed one pattern command; keep going.  */
+    #####: 5943:      if (!FAIL_STACK_EMPTY ())
+    #####: 5946:          POP_FAILURE_POINT (d, p,
+    #####: 5951:          if (!p)
+    #####: 5952:	    goto fail;
+    #####: 5956:          if (p < pend)
+    #####: 5958:              boolean is_a_jump_n = false;
+    #####: 5962:              switch ((re_opcode_t) *p)
+    #####: 5965:                  is_a_jump_n = true;
+    #####: 5969:                  p1 = p + 1;
+    #####: 5970:                  EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 5971:                  p1 += mcnt;	
+    #####: 5973:                  if ((is_a_jump_n && (re_opcode_t) *p1 == succeed_n)
+    #####: 5974:                      || (!is_a_jump_n
+    #####: 5975:                          && (re_opcode_t) *p1 == on_failure_jump))
+    #####: 5976:                    goto fail;
+    #####: 5977:                  break;
+    #####: 5980:                }
+    #####: 5981:            }
+    #####: 5983:          if (d >= string1 && d <= end1)
+    #####: 5984:	    dend = end_match_1;
+    #####: 5985:        }
+    #####: 5987:        break;   /* Matching at this starting point really fails.  */
+    #####: 5990:  if (best_regs_set)
+    #####: 5991:    goto restore_best_regs;
+    #####: 5993:  FREE_VARIABLES ();
+    #####: 5995:  return -1;         			/* Failure to match.  */
+    #####: 5996:} /* re_match_2 */
+    #####: 6018:  unsigned char *p1 = *p + 2;
+    #####: 6020:  while (p1 < end)
+    #####: 6026:      switch ((re_opcode_t) *p1)
+    #####: 6030:          p1++;
+    #####: 6031:          EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 6036:	  if (mcnt >= 0)
+    #####: 6056:              while ((re_opcode_t) p1[mcnt-3] == jump_past_alt)
+    #####: 6062:                  if (!alt_match_null_string_p (p1, p1 + mcnt - 3, 
+    #####: 6063:				                      reg_info))
+    #####: 6064:                    return false;
+    #####: 6068:                  p1 += mcnt;	
+    #####: 6072:                  if ((re_opcode_t) *p1 != on_failure_jump)
+    #####: 6073:                    break;
+    #####: 6077:		  p1++;
+    #####: 6078:                  EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 6079:                  if ((re_opcode_t) p1[mcnt-3] != jump_past_alt)
+    #####: 6082:                      p1 -= 3;
+    #####: 6083:                      break;
+    #####: 6090:              EXTRACT_NUMBER (mcnt, p1 - 2);
+    #####: 6092:              if (!alt_match_null_string_p (p1, p1 + mcnt, reg_info))
+    #####: 6093:                return false;
+    #####: 6095:              p1 += mcnt;	/* Get past the n-th alternative.  */
+    #####: 6096:            } /* if mcnt > 0 */
+    #####: 6097:          break;
+    #####: 6102:          *p = p1 + 2;
+    #####: 6103:          return true;
+    #####: 6107:          if (!common_op_match_null_string_p (&p1, end, reg_info))
+    #####: 6108:            return false;
+    #####: 6109:        }
+    #####: 6112:  return false;
+    #####: 6113:} /* group_match_null_string_p */
+    #####: 6126:  unsigned char *p1 = p;
+    #####: 6128:  while (p1 < end)
+    #####: 6133:      switch ((re_opcode_t) *p1)
+    #####: 6137:          p1++;
+    #####: 6138:          EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 6139:          p1 += mcnt;
+    #####: 6140:          break;
+    #####: 6143:          if (!common_op_match_null_string_p (&p1, end, reg_info))
+    #####: 6144:            return false;
+    #####: 6145:        }
+    #####: 6148:  return true;
+    #####: 6149:} /* alt_match_null_string_p */
+    #####: 6165:  unsigned char *p1 = *p;
+    #####: 6167:  switch ((re_opcode_t) *p1++)
+    #####: 6183:      break;
+    #####: 6186:      reg_no = *p1;
+    #####: 6188:      ret = group_match_null_string_p (&p1, end, reg_info);
+    #####: 6193:      if (REG_MATCH_NULL_STRING_P (reg_info[reg_no]) == MATCH_NULL_UNSET_VALUE)
+    #####: 6194:        REG_MATCH_NULL_STRING_P (reg_info[reg_no]) = ret;
+    #####: 6196:      if (!ret)
+    #####: 6197:        return false;
+    #####: 6198:      break;
+    #####: 6202:      EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 6203:      if (mcnt >= 0)
+    #####: 6204:        p1 += mcnt;
+    #####: 6206:        return false;
+    #####: 6207:      break;
+    #####: 6211:      p1 += 2;		
+    #####: 6212:      EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 6214:      if (mcnt == 0)
+    #####: 6216:          p1 -= 4;
+    #####: 6217:          EXTRACT_NUMBER_AND_INCR (mcnt, p1);
+    #####: 6218:          p1 += mcnt;
+    #####: 6219:        }
+    #####: 6221:        return false;
+    #####: 6222:      break;
+    #####: 6225:      if (!REG_MATCH_NULL_STRING_P (reg_info[*p1]))
+    #####: 6226:        return false;
+    #####: 6227:      break;
+    #####: 6230:      p1 += 4;
+    #####: 6234:      return false;
+    #####: 6237:  *p = p1;
+    #####: 6238:  return true;
+    #####: 6239:} /* common_op_match_null_string_p */
+    #####: 6251:  register unsigned char *p1 = s1, *p2 = s2;
+    #####: 6252:  while (len)
+    #####: 6254:      if (translate[*p1++] != translate[*p2++]) return 1;
+    #####: 6255:      len--;
+    #####: 6257:  return 0;
+    #####: 6258:}
+    #####: 6310:  if (!s)
+    #####: 6312:      if (!re_comp_buf.buffer)
+    #####: 6313:	return "No previous regular expression";
+    #####: 6314:      return 0;
+    #####: 6317:  if (!re_comp_buf.buffer)
+    #####: 6319:      re_comp_buf.buffer = (unsigned char *) malloc (200);
+    #####: 6320:      if (re_comp_buf.buffer == NULL)
+    #####: 6321:        return "Memory exhausted";
+    #####: 6322:      re_comp_buf.allocated = 200;
+    #####: 6324:      re_comp_buf.fastmap = (char *) malloc (1 << BYTEWIDTH);
+    #####: 6325:      if (re_comp_buf.fastmap == NULL)
+    #####: 6326:	return "Memory exhausted";
+    #####: 6327:    }
+    #####: 6333:  re_comp_buf.newline_anchor = 1;
+    #####: 6335:  ret = regex_compile (s, strlen (s), re_syntax_options, &re_comp_buf);
+    #####: 6338:  return (char *) re_error_msg[(int) ret];
+    #####: 6339:}
+    #####: 6346:  const int len = strlen (s);
+    #####: 6347:  return
+    #####: 6348:    0 <= re_search (&re_comp_buf, s, len, 0, len, (struct re_registers *) 0);
+    #####: 6397:  unsigned syntax
+    #####: 6398:    = (cflags & REG_EXTENDED) ?
+    #####: 6402:  preg->buffer = 0;
+    #####: 6403:  preg->allocated = 0;
+    #####: 6404:  preg->used = 0;
+    #####: 6410:  preg->fastmap = 0;
+    #####: 6412:  if (cflags & REG_ICASE)
+    #####: 6416:      preg->translate = (char *) malloc (CHAR_SET_SIZE);
+    #####: 6417:      if (preg->translate == NULL)
+    #####: 6418:        return (int) REG_ESPACE;
+    #####: 6421:      for (i = 0; i < CHAR_SET_SIZE; i++)
+    #####: 6422:        preg->translate[i] = ISUPPER (i) ? tolower (i) : i;
+    #####: 6423:    }
+    #####: 6425:    preg->translate = NULL;
+    #####: 6428:  if (cflags & REG_NEWLINE)
+    #####: 6430:      syntax &= ~RE_DOT_NEWLINE;
+    #####: 6431:      syntax |= RE_HAT_LISTS_NOT_NEWLINE;
+    #####: 6433:      preg->newline_anchor = 1;
+    #####: 6434:    }
+    #####: 6436:    preg->newline_anchor = 0;
+    #####: 6438:  preg->no_sub = !!(cflags & REG_NOSUB);
+    #####: 6442:  ret = regex_compile (pattern, strlen (pattern), syntax, preg);
+    #####: 6446:  if (ret == REG_ERPAREN) ret = REG_EPAREN;
+    #####: 6448:  return (int) ret;
+    #####: 6449:}
+    #####: 6477:  int len = strlen (string);
+    #####: 6478:  boolean want_reg_info = !preg->no_sub && nmatch > 0;
+    #####: 6480:  private_preg = *preg;
+    #####: 6482:  private_preg.not_bol = !!(eflags & REG_NOTBOL);
+    #####: 6483:  private_preg.not_eol = !!(eflags & REG_NOTEOL);
+    #####: 6488:  private_preg.regs_allocated = REGS_FIXED;
+    #####: 6490:  if (want_reg_info)
+    #####: 6492:      regs.num_regs = nmatch;
+    #####: 6493:      regs.start = TALLOC (nmatch, regoff_t);
+    #####: 6494:      regs.end = TALLOC (nmatch, regoff_t);
+    #####: 6495:      if (regs.start == NULL || regs.end == NULL)
+    #####: 6496:        return (int) REG_NOMATCH;
+    #####: 6497:    }
+    #####: 6500:  ret = re_search (&private_preg, string, len,
+    #####: 6501:                   /* start: */ 0, /* range: */ len,
+    #####: 6502:                   want_reg_info ? &regs : (struct re_registers *) 0);
+    #####: 6505:  if (want_reg_info)
+    #####: 6507:      if (ret >= 0)
+    #####: 6511:          for (r = 0; r < nmatch; r++)
+    #####: 6513:              pmatch[r].rm_so = regs.start[r];
+    #####: 6514:              pmatch[r].rm_eo = regs.end[r];
+    #####: 6515:            }
+    #####: 6516:        }
+    #####: 6519:      free (regs.start);
+    #####: 6520:      free (regs.end);
+    #####: 6521:    }
+    #####: 6524:  return ret >= 0 ? (int) REG_NOERROR : (int) REG_NOMATCH;
+    #####: 6525:}
+    #####: 6541:  if (errcode < 0
+    #####: 6542:      || errcode >= (sizeof (re_error_msg) / sizeof (re_error_msg[0])))
+    #####: 6547:    abort ();
+    #####: 6549:  msg = re_error_msg[errcode];
+    #####: 6553:  if (! msg)
+    #####: 6554:    msg = "Success";
+    #####: 6556:  msg_size = strlen (msg) + 1; /* Includes the null.  */
+    #####: 6558:  if (errbuf_size != 0)
+    #####: 6560:      if (msg_size > errbuf_size)
+    #####: 6562:          strncpy (errbuf, msg, errbuf_size - 1);
+    #####: 6563:          errbuf[errbuf_size - 1] = 0;
+    #####: 6564:        }
+    #####: 6566:        strcpy (errbuf, msg);
+    #####: 6567:    }
+    #####: 6569:  return msg_size;
+    #####: 6579:  if (preg->buffer != NULL)
+    #####: 6580:    free (preg->buffer);
+    #####: 6581:  preg->buffer = NULL;
+    #####: 6583:  preg->allocated = 0;
+    #####: 6584:  preg->used = 0;
+    #####: 6586:  if (preg->fastmap != NULL)
+    #####: 6587:    free (preg->fastmap);
+    #####: 6588:  preg->fastmap = NULL;
+    #####: 6589:  preg->fastmap_accurate = 0;
+    #####: 6591:  if (preg->translate != NULL)
+    #####: 6592:    free (preg->translate);
+    #####: 6593:  preg->translate = NULL;
+    #####: 6594:}
+    #####: 6719:    dfaerror("Memory exhausted");
+    #####: 6731:    dfaerror("Memory exhausted");
+    #####: 6744:    dfaerror("Memory exhausted");
+    #####: 6934:FUNC(is_alpha, ISALPHA)
+    #####: 6936:FUNC(is_lower, ISLOWER)
+    #####: 6937:FUNC(is_digit, ISDIGIT)
+    #####: 6938:FUNC(is_xdigit, ISXDIGIT)
+    #####: 6939:FUNC(is_space, ISSPACE)
+    #####: 6941:FUNC(is_alnum, ISALNUM)
+    #####: 6942:FUNC(is_print, ISPRINT)
+    #####: 6943:FUNC(is_graph, ISGRAPH)
+    #####: 6944:FUNC(is_cntrl, ISCNTRL)
+    #####: 6975:    return 0;
+    #####: 7000:	    goto normal_char;
+    #####: 7002:	    dfaerror("Unfinished \\ escape");
+    #####: 7018:	    goto normal_char;
+    #####: 7022:		  ? lexleft > 0 && *lexptr == ')'
+    #####: 7025:		  ? lexleft > 0 && *lexptr == '|'
+    #####: 7043:	      laststart = 0;
+    #####: 7044:	      return lasttok = BACKREF;
+    #####: 7049:	  if (backslash)
+    #####: 7050:	    return lasttok = BEGWORD;
+    #####: 7051:	  goto normal_char;
+    #####: 7054:	  if (backslash)
+    #####: 7055:	    return lasttok = ENDWORD;
+    #####: 7056:	  goto normal_char;
+    #####: 7060:	    return lasttok = LIMWORD;
+    #####: 7064:	  if (backslash)
+    #####: 7065:	    return lasttok = NOTLIMWORD;
+    #####: 7066:	  goto normal_char;
+    #####: 7070:	    goto normal_char;
+    #####: 7074:	    goto normal_char;
+    #####: 7079:	    goto normal_char;
+    #####: 7086:	    goto normal_char;
+    #####: 7090:	    goto normal_char;
+    #####: 7095:	    goto normal_char;
+    #####: 7097:	    goto normal_char;
+    #####: 7113:		  minrep = 10 * minrep + c - '0';
+    #####: 7116:	  else if (c != ',')
+    #####: 7117:	    dfaerror("malformed repeat count");
+    #####: 7119:	    for (;;)
+    #####: 7121:		FETCH(c, "unfinished repeat count");
+    #####: 7122:		if (!ISDIGIT(c))
+    #####: 7123:		  break;
+    #####: 7124:		maxrep = 10 * maxrep + c - '0';
+    #####: 7125:	      }
+    #####: 7130:	      if (c != '\\')
+    #####: 7131:		dfaerror("malformed repeat count");
+    #####: 7132:	      FETCH(c, "unfinished repeat count");
+    #####: 7133:	    }
+    #####: 7135:	    dfaerror("malformed repeat count");
+    #####: 7141:	    goto normal_char;
+    #####: 7151:	    goto normal_char;
+    #####: 7166:	    goto normal_char;
+    #####: 7179:	    clrbit('\0', ccl);
+    #####: 7187:	  zeroset(ccl);
+    #####: 7188:	  for (c2 = 0; c2 < NOTCHAR; ++c2)
+    #####: 7189:	    if (ISALNUM(c2))
+    #####: 7190:	      setbit(c2, ccl);
+    #####: 7191:	  if (c == 'W')
+    #####: 7192:	    notset(ccl);
+    #####: 7193:	  laststart = 0;
+    #####: 7194:	  return lasttok = CSET + charclass_index(ccl);
+    #####: 7198:	    goto normal_char;
+    #####: 7229:		FETCH(c, "Unbalanced [");
+    #####: 7238:		      --lexptr;
+    #####: 7239:		      ++lexleft;
+    #####: 7240:		      c2 = c;
+    #####: 7241:		    }
+    #####: 7246:			FETCH(c2, "Unbalanced [");
+    #####: 7283:		setbit(tolower(c), ccl);
+    #####: 7294:  abort();
+    #####: 7389:	dfaerror("Unbalanced (");
+    #####: 7393:    addtok(EMPTY);
+    #####: 7409:      return 1 + nsubtoks(tindex - 1);
+    #####: 7413:      ntoks1 = nsubtoks(tindex - 1);
+    #####: 7414:      return 1 + ntoks1 + nsubtoks(tindex - 1 - ntoks1);
+    #####: 7441:	  addtok(PLUS);
+    #####: 7443:	  addtok(QMARK);
+    #####: 7451:	    copytoks(tindex, ntokens);
+    #####: 7452:	    addtok(QMARK);
+    #####: 7453:	    addtok(CAT);
+    #####: 7454:	  }
+    #####: 7509:    dfaerror("No syntax specified");
+    #####: 7517:    dfaerror("Unbalanced )");
+    #####: 7523:    addtok(ORTOP);
+    #####: 7586:    else if (s1->elems[i].index < s2->elems[j].index)
+    #####: 7587:      m->elems[m->nelem++] = s2->elems[j++];
+    #####: 7590:	m->elems[m->nelem] = s1->elems[i++];
+    #####: 7591:	m->elems[m->nelem++].constraint |= s2->elems[j++].constraint;
+    #####: 7675:	d->states[i].constraint = NO_CONSTRAINT;
+    #####: 7676:	d->states[i].backref = 1;
+    #####: 7677:      }
+    #####: 7712:	    --i;
+    #####: 7713:	    continue;
+    #####: 7725:	    p.constraint &= BEGWORD_CONSTRAINT;
+    #####: 7726:	    break;
+    #####: 7728:	    p.constraint &= ENDWORD_CONSTRAINT;
+    #####: 7729:	    break;
+    #####: 7731:	    p.constraint &= LIMWORD_CONSTRAINT;
+    #####: 7732:	    break;
+    #####: 7734:	    p.constraint &= NOTLIMWORD_CONSTRAINT;
+    #####: 7735:	    break;
+    #####: 7737:	    break;
+    #####: 7860:	*nullable++ = 1;
+    #####: 7863:	*nfirstpos++ = *nlastpos++ = 0;
+    #####: 7864:	break;
+    #####: 7904:	  nfirstpos[-2] += nfirstpos[-1];
+    #####: 8004:	  REALLOC(d->follows[i].elems, position, merged.nelem);
+    #####: 8129:	    for (j = 0; j < CHARCLASS_INTS; ++j)
+    #####: 8130:	      matches[j] &= ~letters[j];
+    #####: 8133:	    for (j = 0; j < CHARCLASS_INTS; ++j)
+    #####: 8134:	      matches[j] &= letters[j];
+    #####: 8219:	    wants_letter = 1;
+    #####: 8228:	state_letter = state_index(d, &follows, 0, 1);
+    #####: 8240:    for (i = 0; i < NOTCHAR; ++i)
+    #####: 8241:      trans[i] = -1;
+    #####: 8262:	for (j = 0; j < follows.nelem; ++j)
+    #####: 8263:	  if (PREV_NEWLINE_DEPENDENT(follows.elems[j].constraint))
+    #####: 8264:	    wants_newline = 1;
+    #####: 8278:	state_newline = state_index(d, &follows, 1, 0);
+    #####: 8282:	state_letter = state_index(d, &follows, 0, 1);
+    #####: 8294:		trans[c] = state_newline;
+    #####: 8337:	    free((ptr_t) d->fails[i]);
+    #####: 8338:	    d->fails[i] = NULL;
+    #####: 8339:	  }
+    #####: 8481:		  *backref = 1;
+    #####: 8494:	++*count;
+    #####: 8507:      if (p[-1] == '\n' && newline)
+    #####: 8509:	  s = d->newlines[s1];
+    #####: 8510:	  continue;
+    #####: 8513:      s = 0;
+    #####: 8552:	dfaerror("out of memory");
+    #####: 8588:  free((ptr_t) d->charclasses);
+    #####: 8589:  free((ptr_t) d->tokens);
+    #####: 8590:  for (i = 0; i < d->sindex; ++i)
+    #####: 8591:    free((ptr_t) d->states[i].elems.elems);
+    #####: 8592:  free((ptr_t) d->states);
+    #####: 8593:  for (i = 0; i < d->tindex; ++i)
+    #####: 8594:    if (d->follows[i].elems)
+    #####: 8595:      free((ptr_t) d->follows[i].elems);
+    #####: 8596:  free((ptr_t) d->follows);
+    #####: 8597:  for (i = 0; i < d->tralloc; ++i)
+    #####: 8598:    if (d->trans[i])
+    #####: 8599:      free((ptr_t) d->trans[i]);
+    #####: 8600:    else if (d->fails[i])
+    #####: 8601:      free((ptr_t) d->fails[i]);
+    #####: 8602:  free((ptr_t) d->realtrans);
+    #####: 8603:  free((ptr_t) d->fails);
+    #####: 8604:  free((ptr_t) d->newlines);
+    #####: 8605:  for (dm = d->musts; dm; dm = ndm)
+    #####: 8607:      ndm = dm->next;
+    #####: 8608:      free(dm->must);
+    #####: 8609:      free((ptr_t) dm);
+    #####: 8610:    }
+    #####: 8611:}
+    #####: 8753:    return;
+    #####: 8770:    return NULL;
+    #####: 8773:      freelist(cpp);
+    #####: 8774:      return NULL;
+    #####: 8800:    return NULL;
+    #####: 8820:    return NULL;
+    #####: 8823:    return NULL;
+    #####: 8840:	break;
+    #####: 8853:    return NULL;
+    #####: 8858:	break;
+    #####: 8875:    return NULL;
+    #####: 8878:    return NULL;
+    #####: 8887:	      freelist(both);
+    #####: 8888:	      return NULL;
+    #####: 8893:	    return NULL;
+    #####: 8933:    return;
+    #####: 8945:	goto done;
+    #####: 8964:	  goto done;		/* "cannot happen" */
+    #####: 8978:	    goto done;		/* "cannot happen" */
+    #####: 8985:	    goto done;		/* "cannot happen" */
+    #####: 9000:	      ++i;
+    #####: 9016:	      goto done;
+    #####: 9024:	    goto done;		/* "cannot happen" */
+    #####: 9030:	    goto done;		/* "cannot happen" */
+    #####: 9039:	    goto done;		/* "cannot happen" */
+    #####: 9051:	      goto done;
+    #####: 9059:		  goto done;
+    #####: 9062:		  goto done;
+    #####: 9067:		  goto done;
+    #####: 9075:		  goto done;
+    #####: 9082:	      goto done;
+    #####: 9088:		  goto done;
+    #####: 9098:	      goto done;
+    #####: 9103:	      goto done;
+    #####: 9118:		goto done;
+    #####: 9287:    return 0;
+    #####: 9295:      kwsfree((kwset_t) kwset);
+    #####: 9296:      return 0;
+    #####: 9350:	  links[depth] = link;
+    #####: 9351:	  if (label < link->label)
+    #####: 9352:	    dirs[depth++] = L, link = link->llink;
+    #####: 9354:	    dirs[depth++] = R, link = link->rlink;
+    #####: 9365:	    return "memory exhausted";
+    #####: 9371:	    return "memory exhausted";
+    #####: 9386:	    links[depth]->rlink = link;
+    #####: 9391:	      if (dirs[depth] == L)
+    #####: 9392:		--links[depth]->balance;
+    #####: 9394:		++links[depth]->balance;
+    #####: 9395:	      --depth;
+    #####: 9400:			|| (dirs[depth] == R && ++links[depth]->balance)))
+    #####: 9402:	      switch (links[depth]->balance)
+    #####: 9405:		  switch (dirs[depth + 1])
+    #####: 9408:		      r = links[depth], t = r->llink, rl = t->rlink;
+    #####: 9409:		      t->rlink = r, r->llink = rl;
+    #####: 9410:		      t->balance = r->balance = 0;
+    #####: 9411:		      break;
+    #####: 9413:		      r = links[depth], l = r->llink, t = l->rlink;
+    #####: 9414:		      rl = t->rlink, lr = t->llink;
+    #####: 9415:		      t->llink = l, l->rlink = lr, t->rlink = r, r->llink = rl;
+    #####: 9416:		      l->balance = t->balance != 1 ? 0 : -1;
+    #####: 9417:		      r->balance = t->balance != (char) -1 ? 0 : 1;
+    #####: 9418:		      t->balance = 0;
+    #####: 9419:		      break;
+    #####: 9421:		  break;
+    #####: 9423:		  switch (dirs[depth + 1])
+    #####: 9426:		      l = links[depth], t = l->rlink, lr = t->llink;
+    #####: 9427:		      t->llink = l, l->rlink = lr;
+    #####: 9428:		      t->balance = l->balance = 0;
+    #####: 9429:		      break;
+    #####: 9431:		      l = links[depth], r = l->rlink, t = r->llink;
+    #####: 9432:		      lr = t->llink, rl = t->rlink;
+    #####: 9433:		      t->llink = l, l->rlink = lr, t->rlink = r, r->llink = rl;
+    #####: 9434:		      l->balance = t->balance != 1 ? 0 : -1;
+    #####: 9435:		      r->balance = t->balance != (char) -1 ? 0 : 1;
+    #####: 9436:		      t->balance = 0;
+    #####: 9437:		      break;
+    #####: 9439:		  break;
+    #####: 9442:	      if (dirs[depth - 1] == L)
+    #####: 9443:		links[depth - 1]->llink = t;
+    #####: 9445:		links[depth - 1]->rlink = t;
+    #####: 9446:	    }
+    #####: 9510:	  tree->trie->fail = link->trie;
+    #####: 9511:	  return;
+    #####: 9544:    return 0;
+    #####: 9546:    return 0;
+    #####: 9591:    for (i = 0; i < NCHAR; ++i)
+    #####: 9592:      delta[i] = 255;
+    #####: 9648:		fail->maxshift = curr->depth - fail->depth;
+    #####: 9657:	    curr->maxshift = curr->parent->maxshift;
+    #####: 9659:	    curr->shift = curr->maxshift;
+    #####: 9672:	for (i = 0; i < NCHAR; ++i)
+    #####: 9673:	  kwset->next[i] = next[i];
+    #####: 9705:    return text;
+    #####: 9795:    return 0;
+    #####: 9805:      mch = text, accept = kwset->trie;
+    #####: 9806:      goto match;
+    #####: 9812:    qlim = 0;
+    #####: 9835:	  mch = beg;
+    #####: 9836:	  accept = trie;
+    #####: 9837:	}
+    #####: 9876:      if ((d = delta[c = (end += d)[-1]]) != 0)
+    #####: 9877:	continue;
+    #####: 9878:      beg = end - 1;
+    #####: 9879:      if (!(trie = next[c]))
+    #####: 9881:	  d = 1;
+    #####: 9882:	  continue;
+    #####: 9884:      if (trie->accepting && beg <= mch)
+    #####: 9886:	  lmch = beg;
+    #####: 9887:	  accept = trie;
+    #####: 9888:	}
+    #####: 9889:      d = trie->shift;
+    #####: 9890:      while (beg > text)
+    #####: 9892:	  c = trans ? trans[(unsigned char) *--beg] : *--beg;
+    #####: 9893:	  tree = trie->links;
+    #####: 9894:	  while (tree && c != tree->label)
+    #####: 9895:	    if (c < tree->label)
+    #####: 9896:	      tree = tree->llink;
+    #####: 9898:	      tree = tree->rlink;
+    #####: 9899:	  if (tree)
+    #####: 9901:	      trie = tree->trie;
+    #####: 9902:	      if (trie->accepting && beg <= mch)
+    #####: 9904:		  lmch = beg;
+    #####: 9905:		  accept = trie;
+    #####: 9906:		}
+    #####: 9907:	    }
+    #####: 9909:	    break;
+    #####: 9910:	  d = trie->shift;
+    #####: 9912:      if (lmch)
+    #####: 9914:	  mch = lmch;
+    #####: 9915:	  goto match;
+    #####: 9917:      if (!d)
+    #####: 9918:	d = 1;
+    #####: 9970:  kwset = (struct kwset *) kws;
+    #####: 9971:  obstack_free(&kwset->obstack, 0);
+    #####: 9972:  free(kws);
+    #####: 9973:}
+    #####:10121:  if (alignment == 0)
+    #####:10122:    alignment = DEFAULT_ALIGNMENT;
+    #####:10123:  if (size == 0)
+    #####:10134:      int extra = ((((12 + DEFAULT_ROUNDING - 1) & ~(DEFAULT_ROUNDING - 1))
+    #####:10137:      size = 4096 - extra;
+    #####:10138:    }
+    #####:10140:  h->chunkfun = (struct _obstack_chunk * (*)()) chunkfun;
+    #####:10141:  h->freefun = freefun;
+    #####:10142:  h->chunk_size = size;
+    #####:10143:  h->alignment_mask = alignment - 1;
+    #####:10144:  h->extra_arg = arg;
+    #####:10145:  h->use_extra_arg = 1;
+    #####:10147:  chunk = h->chunk = CALL_CHUNKFUN (h, h -> chunk_size);
+    #####:10148:  h->next_free = h->object_base = chunk->contents;
+    #####:10149:  h->chunk_limit = chunk->limit
+    #####:10150:    = (char *) chunk + h->chunk_size;
+    #####:10151:  chunk->prev = 0;
+    #####:10153:  h->maybe_empty_object = 0;
+    #####:10154:}
+    #####:10191:	((COPYING_UNIT *)new_chunk->contents)[i]
+    #####:10192:	  = ((COPYING_UNIT *)h->object_base)[i];
+    #####:10199:    already = 0;
+    #####:10202:    new_chunk->contents[i] = h->object_base[i];
+    #####:10209:      new_chunk->prev = old_chunk->prev;
+    #####:10210:      CALL_FREEFUN (h, old_chunk);
+    #####:10211:    }
+    #####:10231:  lp = (h)->chunk;
+    #####:10235:  while (lp != 0 && ((POINTER)lp >= obj || (POINTER)(lp)->limit < obj))
+    #####:10237:      plp = lp->prev;
+    #####:10238:      lp = plp;
+    #####:10240:  return lp != 0;
+    #####:10259:  lp = h->chunk;
+    #####:10263:  while (lp != 0 && ((POINTER)lp >= obj || (POINTER)(lp)->limit < obj))
+    #####:10265:      plp = lp->prev;
+    #####:10266:      CALL_FREEFUN (h, lp);
+    #####:10267:      lp = plp;
+    #####:10270:      h->maybe_empty_object = 1;
+    #####:10272:  if (lp)
+    #####:10274:      h->object_base = h->next_free = (char *)(obj);
+    #####:10275:      h->chunk_limit = lp->limit;
+    #####:10276:      h->chunk = lp;
+    #####:10277:    }
+    #####:10278:  else if (obj != 0)
+    #####:10280:    abort ();
+    #####:10281:}
+    #####:10293:  lp = h->chunk;
+    #####:10297:  while (lp != 0 && ((POINTER)lp >= obj || (POINTER)(lp)->limit < obj))
+    #####:10299:      plp = lp->prev;
+    #####:10300:      CALL_FREEFUN (h, lp);
+    #####:10301:      lp = plp;
+    #####:10304:      h->maybe_empty_object = 1;
+    #####:10306:  if (lp)
+    #####:10308:      h->object_base = h->next_free = (char *)(obj);
+    #####:10309:      h->chunk_limit = lp->limit;
+    #####:10310:      h->chunk = lp;
+    #####:10311:    }
+    #####:10312:  else if (obj != 0)
+    #####:10314:    abort ();
+    #####:10315:}
+    #####:10564:  fatal(mesg, 0);
+    #####:10565:}
+    #####:10578:    fatal("memory exhausted", 0);
+    #####:10603:	    fatal(err, 0);
+    #####:10612:	    fatal(err, 0);
+    #####:10615:	fatal(err, 0);
+    #####:10633:    fatal(err, 0);
+    #####:10694:      re_set_syntax(RE_SYNTAX_EGREP);
+    #####:10695:      dfasyntax(RE_SYNTAX_EGREP, match_icase);
+    #####:10699:    fatal(err, 0);
+    #####:10715:      char *n = malloc(size + 50);
+    #####:10716:      int i = 0;
+    #####:10718:      strcpy(n, "");
+    #####:10720:      if (match_lines)
+    #####:10721:	strcpy(n, "^(");
+    #####:10722:      if (match_words)
+    #####:10723:	strcpy(n, "(^|[^0-9A-Za-z_])(");
+    #####:10725:      i = strlen(n);
+    #####:10726:      bcopy(pattern, n + i, size);
+    #####:10727:      i += size;
+    #####:10729:      if (match_words)
+    #####:10730:	strcpy(n + i, ")([^0-9A-Za-z_]|$)");
+    #####:10731:      if (match_lines)
+    #####:10732:	strcpy(n + i, ")$");
+    #####:10734:      i += strlen(n + i);
+    #####:10735:      dfacomp(n, i, &dfa_1, 1);
+    #####:10736:    }
+    #####:10769:	    end = buflim;
+    #####:10774:	    goto success;
+    #####:10784:	}
+    #####:10788:	  save = *buflim;
+    #####:10789:	  beg = dfaexec(&dfa_1, beg, buflim, 0, (int *) 0, &backref);
+    #####:10790:	  *buflim = save;
+    #####:10791:	  if (!beg)
+    #####:10792:	    goto failure;
+    #####:10794:	  end = memchr(beg, '\n', buflim - beg);
+    #####:10795:	  if (!end)
+    #####:10796:	    end = buflim;
+    #####:10797:	  while (beg > buf && beg[-1] != '\n')
+    #####:10798:	    --beg;
+    #####:10800:	  if (!backref)
+    #####:10801:	    goto success;
+    #####:10805:      regex.not_eol = 0;
+    #####:10806:      if ((start = re_search(&regex, beg, end - beg, 0, end - beg, &regs)) >= 0)
+    #####:10808:	  len = regs.end[0] - start;
+    #####:10809:	  if (!match_lines && !match_words || match_lines && len == end - beg)
+    #####:10810:	    goto success;
+    #####:10817:	  if (match_words)
+    #####:10818:	    while (start >= 0)
+    #####:10820:		if ((start == 0 || !WCHAR(beg[start - 1]))
+    #####:10821:		    && (len == end - beg || !WCHAR(beg[start + len])))
+    #####:10822:		  goto success;
+    #####:10823:		if (len > 0)
+    #####:10826:		    --len;
+    #####:10827:		    regex.not_eol = 1;
+    #####:10828:		    len = re_match(&regex, beg, start + len, start, &regs);
+    #####:10829:		  }
+    #####:10830:		if (len <= 0)
+    #####:10833:		    if (start == end - beg)
+    #####:10834:		      break;
+    #####:10835:		    ++start;
+    #####:10836:		    regex.not_eol = 0;
+    #####:10837:		    start = re_search(&regex, beg, end - beg,
+    #####:10838:				      start, end - beg - start, &regs);
+    #####:10839:		    len = regs.end[0] - start;
+    #####:10840:		  }
+    #####:10842:	}
+    #####:10843:    }
+    #####:10867:	fatal(err, 0);
+    #####:10869:	++lim;
+    #####:10875:    fatal(err, 0);
+    #####:10895:	  if (beg > buf && beg[-1] != '\n')
+    #####:10896:	    continue;
+    #####:10897:	  if (beg + len < buf + size && beg[len] != '\n')
+    #####:10898:	    continue;
+    #####:10899:	  goto success;
+    #####:10902:	for (try = beg; len && try;)
+    #####:10904:	    if (try > buf && WCHAR((unsigned char) try[-1]))
+    #####:10905:	      break;
+    #####:10906:	    if (try + len < buf + size && WCHAR((unsigned char) try[len]))
+    #####:10908:		try = kwsexec(kwset, beg, --len, &kwsmatch);
+    #####:10909:		len = kwsmatch.size[0];
+    #####:10910:	      }
+    #####:10912:	      goto success;
+    #####:10913:	  }
+    #####:10916:    }
+    #####:10918:  return 0;
+    #####:10924:    end = buf + size;

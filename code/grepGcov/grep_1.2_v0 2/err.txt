@@ -1,0 +1,324 @@
+grep.c:319:39: warning: more '%' conversions than data arguments [-Wformat]
+          fprintf(stderr, "%s: warning: %s: %s\n", filename,
+                                            ~^
+grep.c:396:22: warning: format specifies type 'int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
+      printf("%d%c", ++totalnl, sep);
+              ~~     ^~~~~~~~~
+              %zu
+grep.c:794:5: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+    else
+    ^
+grep.c:939:9: warning: '__alloca' macro redefined [-Wmacro-redefined]
+#define __alloca        alloca
+        ^
+/usr/include/alloca.h:40:9: note: previous definition is here
+#define __alloca(size)  __builtin_alloca(size)
+        ^
+grep.c:3280:17: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                else
+                ^
+grep.c:3300:17: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                else
+                ^
+grep.c:4485:33: warning: expression which evaluates to zero treated as a null pointer constant of type 'regoff_t *' (aka 'int *') [-Wnon-literal-null-conversion]
+      regs->start = regs->end = (regoff_t) 0;
+                                ^~~~~~~~~~~~
+grep.c:5426:19: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+                  PUSH_FAILURE_POINT (p1 + mcnt, d, -2);
+                  ^
+grep.c:4058:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (lowest_active_reg);                              \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5426:19: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+grep.c:4061:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (highest_active_reg);                             \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5573:11: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+          PUSH_FAILURE_POINT (p + mcnt, NULL, -2);
+          ^
+grep.c:4058:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (lowest_active_reg);                              \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5573:11: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+grep.c:4061:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (highest_active_reg);                             \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5626:11: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+          PUSH_FAILURE_POINT (p + mcnt, d, -2);
+          ^
+grep.c:4058:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (lowest_active_reg);                              \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5626:11: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+grep.c:4061:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (highest_active_reg);                             \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5765:11: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+          PUSH_FAILURE_POINT (0, 0, -2);
+          ^
+grep.c:4058:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (lowest_active_reg);                              \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5765:11: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+grep.c:4061:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (highest_active_reg);                             \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5778:11: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+          PUSH_FAILURE_POINT (0, 0, -2);
+          ^
+grep.c:4058:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (lowest_active_reg);                              \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:5778:11: warning: cast to 'fail_stack_elt_t' (aka 'const unsigned char *') from smaller integer type 'unsigned int' [-Wint-to-pointer-cast]
+grep.c:4061:5: note: expanded from macro 'PUSH_FAILURE_POINT'
+    PUSH_FAILURE_ITEM (highest_active_reg);                             \
+    ^
+grep.c:3979:42: note: expanded from macro 'PUSH_FAILURE_ITEM'
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+                                         ^
+grep.c:6913:8: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+static lexleft;                 /* Number of characters remaining. */
+~~~~~~ ^
+grep.c:6995:7: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+      FETCH(c, 0);
+      ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7104:4: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+          FETCH(c, "unfinished repeat count");
+          ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7110:5: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                  FETCH(c, "unfinished repeat count");
+                  ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7121:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                FETCH(c, "unfinished repeat count");
+                ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7132:8: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+              FETCH(c, "unfinished repeat count");
+              ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7200:4: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+          FETCH(c, "Unbalanced [");
+          ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7203:8: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+              FETCH(c, "Unbalanced [");
+              ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7225:9: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                      FETCH(c1, "Unbalanced [");
+                      ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7229:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                FETCH(c, "Unbalanced [");
+                ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7230:8: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+              FETCH(c1, "Unbalanced [");
+              ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7233:5: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                  FETCH(c2, "Unbalanced [");
+                  ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7246:4: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                        FETCH(c2, "Unbalanced [");
+                        ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7247:9: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                      FETCH(c1, "Unbalanced [");
+                      ^
+grep.c:6926:7: note: expanded from macro 'FETCH'
+      else                            \
+      ^
+grep.c:7258:7: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                    else if (ISLOWER(c))
+                    ^
+grep.c:7147:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '\n':
+             ^
+grep.c:7016:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '$':
+             ^
+grep.c:7155:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '(':
+             ^
+grep.c:7162:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case ')':
+             ^
+grep.c:7077:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '*':
+             ^
+grep.c:7084:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '+':
+             ^
+grep.c:7171:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '.':
+             ^
+grep.c:7032:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '1':
+             ^
+grep.c:7033:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '2':
+             ^
+grep.c:7034:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '3':
+             ^
+grep.c:7035:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '4':
+             ^
+grep.c:7036:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '5':
+             ^
+grep.c:7037:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '6':
+             ^
+grep.c:7038:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '7':
+             ^
+grep.c:7039:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '8':
+             ^
+grep.c:7040:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '9':
+             ^
+grep.c:7048:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '<':
+             ^
+grep.c:7053:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '>':
+             ^
+grep.c:7068:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '?':
+             ^
+grep.c:7063:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case 'B':
+             ^
+grep.c:7184:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case 'W':
+             ^
+grep.c:7196:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '[':
+             ^
+grep.c:6998:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '\\':
+             ^
+grep.c:7006:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '^':
+             ^
+grep.c:7058:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case 'b':
+             ^
+grep.c:7183:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case 'w':
+             ^
+grep.c:7093:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '{':
+             ^
+grep.c:7139:7: warning: case value not in enumerated type 'token' [-Wswitch]
+        case '|':
+             ^
+grep.c:7300:8: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+static depth;                   /* Current depth of a hypothetical stack
+~~~~~~ ^
+grep.c:8091:10: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  static initialized;           /* Flag for static initialization. */
+  ~~~~~~ ^
+grep.c:8429:12: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  register s, s1, tmp;          /* Current state. */
+  ~~~~~~~~ ^
+grep.c:8429:15: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  register s, s1, tmp;          /* Current state. */
+  ~~~~~~~~    ^
+grep.c:8429:19: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  register s, s1, tmp;          /* Current state. */
+  ~~~~~~~~        ^
+grep.c:8431:14: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  register **trans, *t;         /* Copy of d->trans so it can be optimized
+  ~~~~~~~~   ^
+grep.c:8431:22: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  register **trans, *t;         /* Copy of d->trans so it can be optimized
+  ~~~~~~~~           ^
+grep.c:8433:10: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  static sbit[NOTCHAR]; /* Table for anding with d->success. */
+  ~~~~~~ ^
+grep.c:8434:10: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+  static sbit_init;
+  ~~~~~~ ^
+grep.c:8482:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                else
+                ^
+grep.c:10055:9: warning: 'CALL_FREEFUN' macro redefined [-Wmacro-redefined]
+#define CALL_FREEFUN(h, old_chunk) \
+        ^
+grep.c:10047:9: note: previous definition is here
+#define CALL_FREEFUN(h, old_chunk) \
+        ^
+grep.c:10809:21: warning: '&&' within '||' [-Wlogical-op-parentheses]
+          if (!match_lines && !match_words || match_lines && len == end - beg)
+              ~~~~~~~~~~~~~^~~~~~~~~~~~~~~ ~~
+grep.c:10809:21: note: place parentheses around the '&&' expression to silence this warning
+          if (!match_lines && !match_words || match_lines && len == end - beg)
+                           ^
+              (                           )
+grep.c:10809:52: warning: '&&' within '||' [-Wlogical-op-parentheses]
+          if (!match_lines && !match_words || match_lines && len == end - beg)
+                                           ~~ ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+grep.c:10809:52: note: place parentheses around the '&&' expression to silence this warning
+          if (!match_lines && !match_words || match_lines && len == end - beg)
+                                                          ^
+                                              (                              )
+73 warnings generated.
